@@ -1,0 +1,35 @@
+web:
+    image: shaneburkhart/prelaunchr:dev
+    ports:
+        - "3000:3000"
+    links:
+        - pg
+        - mailcatcher
+        #- redis
+    volumes:
+        - ./app:/app/app
+        - ./spec:/app/spec
+        - ./db:/app/db
+        - ./config:/app/config
+    env_file:
+        - ./user.env
+
+mailcatcher:
+    image: shaneburkhart/prelaunchr:dev
+    ports:
+        - "1080:1080"
+    command: "mailcatcher -f --http-ip=0.0.0.0 --smtp-ip=0.0.0.0"
+
+pg:
+    image: postgres
+    ports:
+        - "5432:5432"
+    environment:
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=postgres
+        - POSTGRES_DB=mydb
+    volumes:
+        - ./data/pg:/var/lib/postgresql/data
+
+#redis:
+        #image: redis:3.2

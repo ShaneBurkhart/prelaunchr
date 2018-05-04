@@ -1,0 +1,13 @@
+FROM shaneburkhart/prelaunchr
+MAINTAINER Shane Burkhart <shaneburkhart@gmail.com>
+
+ENV RAILS_ENV development
+
+# Bundle caches the without calls so we delete the cache.
+RUN rm /usr/local/bundle/config
+RUN bundle install --without production test
+
+# Mailcatcher port
+EXPOSE 1080
+
+CMD ["bundle", "exec", "rails", "s", "-b", "0.0.0.0"]
