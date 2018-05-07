@@ -7,14 +7,10 @@ gem 'devise', '~> 3.2'
 gem 'pg', '0.21.0'
 gem 'rails', '4.2.5.2'
 gem 'unicorn'
-
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'coffee-rails', '~> 4.1.0'
-  gem 'sass-rails',   '~> 5.0.1'
-  gem 'uglifier'
-end
+gem 'coffee-rails', '~> 4.1.0'
+gem 'sass-rails',   '~> 5.0.1'
+gem 'uglifier'
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'pry'
