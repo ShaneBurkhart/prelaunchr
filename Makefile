@@ -60,6 +60,34 @@ pg:
 	echo "Enter 'postgres'..."
 	docker-compose -f ${DEV_FILE} -p ${NAME} run --rm pg psql -h pg -d mydb -U postgres --password
 
+prod:
+	git checkout master
+	git pull origin master
+	$(MAKE) build_prod
+	$(MAKE) migrate_prod
+	$(MAKE) run_prod
+
+run_prod:
+	docker-compose -p ${NAME} up -d
+
+build_prod:
+	 docker build -t ${BASE_TAG} .
+
+migrate_prod:
+	docker-compose -p ${NAME} run --rm web rake db:migrate
+
+clean_prod:
+	docker-compose -p ${NAME} down
+
+c_prod:
+	docker-compose run --rm web /bin/bash
+
+logs_prod:
+	docker-compose -p ${NAME} logs -f
+
+ps_prod:
+	docker-compose ps
+
 
 bundle:
 	docker-compose -f ${DEV_FILE} -p ${NAME} run --rm web bundle

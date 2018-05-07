@@ -1,0 +1,21 @@
+web:
+    image: shaneburkhart/prelaunchr
+    ports:
+        - "3000:3000"
+    links:
+        - pg
+        #- redis
+    env_file:
+        - ./user.env
+
+pg:
+    image: postgres
+    environment:
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=postgres
+        - POSTGRES_DB=mydb
+    volumes:
+        - ./data/pg:/var/lib/postgresql/data
+
+#redis:
+        #image: redis:3.2

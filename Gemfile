@@ -2,13 +2,11 @@ source 'https://rubygems.org'
 
 ruby '2.3.0'
 
-gem 'activeadmin', '1.0.0.pre2'
 gem 'delayed_job_active_record', '~> 4.0.3'
-gem 'devise'
-gem 'pg'
+gem 'devise', '~> 3.2'
+gem 'pg', '0.21.0'
 gem 'rails', '4.2.5.2'
 gem 'unicorn'
-
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -23,8 +21,6 @@ group :development, :test do
   gem 'rspec-rails', '3.4.2'
   gem 'rspec-mocks', '3.4.1'
   gem 'test-unit', '~> 3.0'
-  gem "dotenv-rails"
-  gem "foreman"
   gem "mailcatcher"
 end
 
