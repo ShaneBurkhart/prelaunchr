@@ -64,8 +64,8 @@ prod:
 	git checkout master
 	git pull origin master
 	$(MAKE) build_prod
-	$(MAKE) migrate_prod
 	$(MAKE) run_prod
+	$(MAKE) migrate_prod
 
 run_prod:
 	docker-compose -p ${NAME} up -d
