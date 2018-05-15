@@ -1,3 +1,15 @@
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
 form{
 	margin-bottom: 0;
 }
@@ -24,7 +36,6 @@ html.home{
 }
 
 #home .page-content{
-	width: 1400px;
 	margin: 0 auto;
 }
 
@@ -61,12 +72,14 @@ html.home{
 	text-transform: uppercase;
 	text-align: center;
 	width: 375px;
+	max-width: 375px;
 	letter-spacing: 1px;
 }
 
 #home .form-wrap{
 	height: 80px;
 	width: 411px;
+	max-width: 411px;
 	margin: 23px auto 0;
 }
 
@@ -90,12 +103,14 @@ html.home{
 
 #home .form-wrap .email{
 	float: left;
+	height: 37px;
 	font-size: 13px;
 	padding: 8px 0 8px 10px;
 	border: 1px solid #074E6F;
 	width: 256px;
 	outline: none;
 	letter-spacing: 1px;
+    border-radius: 0;
 }
 
 #home .form-wrap .submit{
@@ -223,6 +238,44 @@ html.home{
 	text-align: center;
 }
 
+#home .form-wrap form {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 0 2%;
+}
+
+#home .form-wrap .email {
+    float: none;
+    width: 100%;
+}
+
+#home .form-wrap .submit{
+    float: none;
+    width: auto;
+    padding: 0 8px;
+}
+
+@media only screen and (max-width: 750px) {
+    #home .hero .small {
+        padding: 0;
+        margin: 10px auto 0;
+        text-align: center;
+        width: auto;
+    }
+
+    #home .hero .large {
+        padding: 0;
+        margin: 85px auto 0;
+        text-align: center;
+        width: auto;
+    }
+
+    #home .form-wrap {
+        width: auto;
+        height: auto;
+    }
+}
 
 
 /* Refer a friend page */
@@ -240,10 +293,12 @@ html.home{
 }
 
 #refer .page-content{
-	width: 1120px;
+    width: 100%;
+	max-width: 1120px;
 	margin: 0 auto;
 	z-index: 0;
 	position: relative;
+    padding: 2%;
 }
 
 #refer .header{
@@ -291,14 +346,18 @@ html.home{
 	overflow: hidden;
 }
 
+#refer .hero .page-content {
+    position: relative;
+}
+
 #refer .mammoth{
-	width: 612px;
+	width: auto;
 	height: 394px;
 	background: image-url("refer/mammoth.png") 0 0 no-repeat;
 	background-size: 610px 394px;
 	overflow: hidden;
 	margin-top: 15px;
-	float: left;
+    flex: 1;
 }
 
 #refer .mammoth .need{
@@ -315,12 +374,14 @@ html.home{
 }
 
 #refer .share-wrap{
-	float: right;
 	width: 400px;
 	text-align: center;
 	text-transform: uppercase;
 	letter-spacing: .13em;
 	margin-right: 60px;
+    position: absolute;
+    right: 0;
+    top: 0;
 }
 
 #refer .share-wrap .why{
@@ -410,35 +471,6 @@ html.home{
 	text-transform: uppercase;
 }
 
-#refer .prizes .progress{
-	height: 4px;
-	width: 100%;
-	background: image-url("refer/progress-bg.png") 0 0 repeat-x;
-	background-size: 1px 4px;
-	position: absolute;
-	top: 100px;
-	z-index: 0;
-}
-
-#refer .prizes .progress .mover{
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-
-#refer .prizes .progress .mover .bar{
-	background: image-url("refer/progress-done.png") 0 0 repeat-x;
-	width: 165px;
-	height: 4px;
-	-webkit-background-size: 1px 4px;
-	background-size: 1px 4px;
-}
-
-#refer .prize-two .progress .mover .bar{ width: 312px; }
-#refer .prize-three .progress .mover .bar{ width: 566px; }
-#refer .prize-four .progress .mover .bar{ width: 820px; }
-#refer .prize-five .progress .mover .bar{ width: 1120px; }
-
 
 #refer .prizes ul.products{
 	height: 105px;
@@ -446,6 +478,7 @@ html.home{
 	margin-top: 30px;
 	position: relative;
 	z-index: 1;
+    display: flex;
 }
 
 #refer .prizes .products li.title{
@@ -455,9 +488,9 @@ html.home{
 	font-weight: 500;
 	font-size: 14px;
 	float: left;
-	margin-right: 68px;
 	width: 165px;
 	font-weight: bold;
+    flex: 1;
 }
 
 #refer .prizes .products li.title .friends{
@@ -474,10 +507,12 @@ html.home{
 	height: 100%;
 	color: #074E6F;
 	width: 125px;
-	margin-right: 129px;
 	float: left;
 	position: relative;
+    flex: 1;
 }
+
+#refer .prizes .products li.product.progress-placeholder { display: none; }
 
 #refer .prizes .products li.product .circle{
 	height: 30px;
@@ -525,6 +560,42 @@ html.home{
 
 #refer .prizes .products li.product.last{
 	margin-right: 0;
+}
+
+#refer .prizes .products li.title:before,
+#refer .prizes .products li.title:after,
+#refer .prizes .products li.product:before,
+#refer .prizes .products li.product:after {
+    content: "";
+    position: absolute;
+    top: 42px;
+    width: 50%;
+    height: 4px;
+    background: image-url("refer/progress-done.png") 0 0 repeat-x;
+    background-size: 1px 4px;
+}
+
+#refer .prizes .products li.product:before { left: 0; }
+#refer .prizes .products li.product:after { right: 0; }
+
+#refer .no-prize .products li.product + li.product:before,
+#refer .no-prize .products li.product + li.product:after {
+    background: image-url("refer/progress-bg.png") 0 0 repeat-x;
+}
+
+#refer .prize-two .products li.product + li.product + li.product:before,
+#refer .prize-two .products li.product + li.product + li.product:after {
+    background: image-url("refer/progress-bg.png") 0 0 repeat-x;
+}
+
+#refer .prize-three .products li.product + li.product + li.product + li.product:before,
+#refer .prize-three .products li.product + li.product + li.product + li.product:after {
+    background: image-url("refer/progress-bg.png") 0 0 repeat-x;
+}
+
+#refer .prize-four .products li.product + li.product + li.product + li.product + li.product:before,
+#refer .prize-four .products li.product + li.product + li.product + li.product + li.product:after {
+    background: image-url("refer/progress-bg.png") 0 0 repeat-x;
 }
 
 #refer .prizes .products li.product.selected .circle{
@@ -606,6 +677,148 @@ html.home{
 	text-decoration: none;
 }
 
+@media only screen and (max-width: 750px) {
+    #refer .hero {
+        height: auto;
+    }
+
+    #refer .page-content {
+        width: auto;
+    }
+
+    #refer .mammoth{
+        width: auto;
+        height: 394px;
+        background: image-url("refer/mammoth.png") 10% 10% no-repeat;
+        background-size: auto 394px;
+        overflow: hidden;
+        margin-top: 15px;
+        float: none;
+    }
+
+    #refer .mammoth .need{
+        color: #FFF;
+        margin: 102px auto 0;
+        display: block;
+        width: 284px;
+    }
+
+    #refer .share-wrap{
+        float: none;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto 42px;
+        padding: 0 2%;
+    }
+
+    #refer .prizes ul.products{
+        height: auto;
+        width: 100%;
+        max-width: 400px;
+        margin: 30px auto 0;
+        position: relative;
+        z-index: 1;
+    }
+
+    #refer .prizes .products li.title,
+    #refer .prizes .products li.product{
+        height: auto;
+        width: 100%;
+        float: none;
+        position: relative;
+        display: flex;
+        flex-direction: row;
+    }
+
+    #refer .prizes .products li.title {
+        margin-bottom: 10px;
+    }
+
+    #refer .prizes .products li.product{
+        padding: 30px 2% 30px 65px;
+    }
+
+    #refer .prizes .products li.product:before,
+    #refer .prizes .products li.product:after {
+        content: "";
+        position: absolute;
+        left: 78px;
+        height: 50%;
+        width: 4px;
+		background: image-url("refer/progress-done-vert.png") 0 0 repeat-y;
+		background-size: 4px 1px;
+        z-index: -1;
+    }
+
+    #refer .prizes .products li.product:before { top: 0; }
+    #refer .prizes .products li.product:after { bottom: 0; }
+
+    #refer .prizes .products li.product.progress-placeholder:after { padding: 15px 0; }
+    #refer .prizes .products li.product.last:after { display: none; }
+
+    #refer .no-prize .products li.product + li.product:before,
+    #refer .no-prize .products li.product + li.product:after {
+		background: image-url("refer/progress-bg-vert.png") 0 0 repeat-y;
+    }
+
+    #refer .prize-two .products li.product + li.product + li.product:before,
+    #refer .prize-two .products li.product + li.product + li.product:after {
+		background: image-url("refer/progress-bg-vert.png") 0 0 repeat-y;
+    }
+
+    #refer .prize-three .products li.product + li.product + li.product + li.product:before,
+    #refer .prize-three .products li.product + li.product + li.product + li.product:after {
+		background: image-url("refer/progress-bg-vert.png") 0 0 repeat-y;
+    }
+
+    #refer .prize-four .products li.product + li.product + li.product + li.product + li.product:before,
+    #refer .prize-four .products li.product + li.product + li.product + li.product + li.product:after {
+		background: image-url("refer/progress-bg-vert.png") 0 0 repeat-y;
+    }
+
+#refer .prize-two .progress .mover .bar{ width: 312px; }
+#refer .prize-three .progress .mover .bar{ width: 566px; }
+#refer .prize-four .progress .mover .bar{ width: 820px; }
+#refer .prize-five .progress .mover .bar{ width: 1120px; }
+
+    #refer .prizes .products li.title {
+        padding: 0;
+    }
+
+    #refer .prizes .products li.title .friends{
+        display: inline-block;
+        margin-top: 0;
+        text-align: left;
+        width: 160px;
+        padding-left: 10px;
+    }
+
+    #refer .prizes .products li.title .rewards{
+        display: inline-block;
+        margin-top: 0;
+        flex: 1;
+        text-align: center;
+    }
+
+    #refer .prizes .products li.product .circle{
+        margin: 0;
+        display: block;
+    }
+
+    #refer .prizes .products li.product .sep{
+        display: none;
+    }
+
+    #refer .prizes .products li.product p {
+        padding-left: 65px;
+        display: block;
+        flex: 1;
+    }
+
+    #refer .prizes .progress{
+        display: none;
+    }
+}
 
 
 /*
@@ -631,7 +844,7 @@ only screen and (min-device-pixel-ratio: 2) {
 	}
 
 	#refer .mammoth{
-		background: image-url("refer/mammoth@2x.png") 0 0 no-repeat;
+		background: image-url("refer/mammoth@2x.png") 10% 10% no-repeat;
 		background-size: 610px 394px;
 	}
 
@@ -670,44 +883,4 @@ only screen and (min-device-pixel-ratio: 2) {
 		background-size: 16px 10px;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

@@ -41,11 +41,16 @@
     end
   }
 %>
-<div class="prizes <% if found %>prize-<%= found["class"] %><% end %>">
+<% if found %>
+  <div class="prizes <% if found %>prize-<%= found["class"] %><% end %>">
+<% else  %>
+  <div class="prizes no-prize">
+<% end %>
   <div class="page-content">
     <p class="callout brandon">Here's How It Works:</p>
     <ul class="products clearfix">
       <li class="title brandon"><p class="friends">Friends Joined</p><p class="rewards">Harry's Product</p></li>
+      <li class="product progress-placeholder"></li>
       <% stops.each do |stop| %>
         <li class="product brandon <% if stop["selected"] %>selected<% end %> <% if stop["class"] == 'five' %>last<% end %>">
           <div class="circle"><%= stop["count"] %></div>
@@ -58,12 +63,6 @@
         </li>
       <% end %>
     </ul>
-
-    <div class="progress">
-      <div class="mover">
-        <div class="bar clearfix"></div>
-      </div>
-    </div>
 
     <%
       words = ''
