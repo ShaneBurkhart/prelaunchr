@@ -705,6 +705,7 @@ html.home{
 
     #refer .share-wrap{
         float: none;
+        position: static;
         width: 100%;
         max-width: 400px;
         margin: 0 auto 42px;
@@ -718,6 +719,7 @@ html.home{
         margin: 30px auto 0;
         position: relative;
         z-index: 1;
+        display: block;
     }
 
     #refer .prizes .products li.title,
@@ -728,10 +730,15 @@ html.home{
         position: relative;
         display: flex;
         flex-direction: row;
+        flex: auto;
     }
 
     #refer .prizes .products li.title {
         margin-bottom: 10px;
+    }
+    #refer .prizes .products li.title:before,
+    #refer .prizes .products li.title:after {
+        display: none;
     }
 
     #refer .prizes .products li.product{
@@ -750,10 +757,10 @@ html.home{
         z-index: -1;
     }
 
-    #refer .prizes .products li.product:before { top: 0; }
-    #refer .prizes .products li.product:after { bottom: 0; }
+    #refer .prizes .products li.product:before { top: 0; bottom: auto; }
+    #refer .prizes .products li.product:after { bottom: 0; top: auto; }
 
-    #refer .prizes .products li.product.progress-placeholder:after { padding: 15px 0; }
+    #refer .prizes .products li.product.progress-placeholder { display: flex; padding: 15px 0; }
     #refer .prizes .products li.product.last:after { display: none; }
 
     #refer .no-prize .products li.product + li.product:before,
@@ -775,11 +782,6 @@ html.home{
     #refer .prize-four .products li.product + li.product + li.product + li.product + li.product:after {
 		background: image-url("refer/progress-bg-vert.png") 0 0 repeat-y;
     }
-
-#refer .prize-two .progress .mover .bar{ width: 312px; }
-#refer .prize-three .progress .mover .bar{ width: 566px; }
-#refer .prize-four .progress .mover .bar{ width: 820px; }
-#refer .prize-five .progress .mover .bar{ width: 1120px; }
 
     #refer .prizes .products li.title {
         padding: 0;
