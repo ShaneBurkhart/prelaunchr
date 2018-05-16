@@ -76,7 +76,6 @@ class UsersController < ApplicationController
       response: captcha_response,
       remoteip: request.remote_ip
     }
-    puts request.remote_ip
 
     resp = Net::HTTP.post_form(URI.parse('https://www.google.com/recaptcha/api/siteverify'), post_data)
     body = resp.body
