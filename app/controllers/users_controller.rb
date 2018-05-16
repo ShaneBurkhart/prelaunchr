@@ -1,5 +1,9 @@
+require "uri"
+require "net/http"
+
 class UsersController < ApplicationController
   before_filter :skip_first_page, only: :new
+  before_filter :check_captcha, only: :create
   #before_filter :handle_ip, only: :create
 
   def new
@@ -61,6 +65,23 @@ class UsersController < ApplicationController
     else
       cookies.delete :h_email
     end
+  end
+
+  def check_captcha
+    captcha_response = params['g-recaptcha-response']
+    return if captcha_response.nil?
+
+    post_data = {
+      secret: ENV['RECAPTCHA_SECRET'],
+      response: captcha_response,
+      remoteip: request.remote_ip
+    }
+    puts request.remote_ip
+
+    resp = Net::HTTP.post_form(URI.parse('https://www.google.com/recaptcha/api/siteverify'), post_data)
+    body = resp.body
+
+    return redirect_to "/" if body["success"] == false
   end
 
   def handle_ip

@@ -1,6 +1,20 @@
 <div class="key"></div>
 <p class="byline brandon">Be the first to know</p>
-<%= form_for @user, :url => { :action => "create" } do |f| %>
+<%= form_for @user, :url => { :action => "create" }, html: { id: "email-form" } do |f| %>
   <%= f.text_field :email, :placeholder => "Enter Email", :class => "email brandon" %>
-  <input class="submit brandon" name="commit" type="submit" value="Step Inside" />
+
+  <input
+    class="submit brandon g-recaptcha"
+    name="commit"
+    type="submit"
+    value="Step Inside"
+    data-sitekey="6LdwdFkUAAAAAN93lFRt4g2CsBvqEqPXJ4at6Q_y"
+    data-callback="onSubmit"
+  />
 <% end %>
+
+<script>
+  function onSubmit(token) {
+    document.getElementById("email-form").submit();
+  }
+</script>
