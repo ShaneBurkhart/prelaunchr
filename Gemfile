@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.3.0'
+ruby '2.3.1'
 
 gem 'delayed_job_active_record', '~> 4.0.3'
 gem 'devise', '~> 3.2'

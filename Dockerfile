@@ -1,4 +1,4 @@
-FROM ruby:2.3.0
+FROM ruby:2.3.1
 MAINTAINER Shane Burkhart <shaneburkhart@gmail.com>
 
 RUN curl -sL https://deb.nodesource.com/setup_9.x | bash -
