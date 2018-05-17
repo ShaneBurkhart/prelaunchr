@@ -14,6 +14,10 @@ form{
 	margin-bottom: 0;
 }
 
+.grecaptcha-badge {
+    display: none !important;
+}
+
 .clearfix:before,
 .clearfix:after {
     content: " "; /* 1 */
@@ -28,11 +32,11 @@ form{
 /* Home */
 
 html.home{
-	background: #EDECEA;
+	background: #f5f5f5;
 }
 
 #home{
-	padding-bottom: 50px;
+	padding-bottom: 30px;
 }
 
 #home .page-content{
@@ -42,23 +46,47 @@ html.home{
 #home .hero{
 	width: 100%;
 	height: 446px;
-	background: image-url("home/hero.jpg") center center no-repeat;
-	background-size: 1600px 446px;
+	background: image-url("home/hero-treats.jpg") center center no-repeat;
+	background-size: cover;
 	overflow: hidden;
 	position: relative;
 	letter-spacing: .09em;
 	margin: 0 auto;
+    text-align: center;
+    z-index: 0;
+    padding: 0 15px;;
+}
+
+#home .hero > * {
+    position: relative;
+    z-index: 100;
+}
+
+#home .hero:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgb(182,198,207);
+    background: -moz-linear-gradient(180deg, rgba(182,198,207,1) 20%, rgba(216,216,216,0.19) 100%);
+    background: -webkit-linear-gradient(180deg, rgba(182,198,207,1) 20%, rgba(216,216,216,0.19) 100%);
+    background: linear-gradient(180deg, rgba(182,198,207,1) 20%, rgba(216,216,216,0.19) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b6c6cf",endColorstr="#d8d8d8",GradientType=1);
+    z-index: 0;
+}
+
+#home .hero .logo {
+    width: 200px;
+    margin-top: 30px;
 }
 
 #home .hero .large{
-	font-weight: bold;
-	font-size: 40px;
-	color: #074E6F;
-	text-transform: uppercase;
-	margin: 85px 0 0 136px;
-	position: relative;
-	z-index: 2;
-	letter-spacing: 2px;
+	font-size: 48px;
+	color: #ffffff;
+    margin-top: 100px;
 }
 
 #home .hero .small{
@@ -77,53 +105,63 @@ html.home{
 }
 
 #home .form-wrap{
-	height: 80px;
-	width: 411px;
-	max-width: 411px;
+	width: 430px;
+	max-width: 430px;
 	margin: 23px auto 0;
-}
-
-#home .form-wrap .key{
-	width: 46px;
-	height: 19px;
-	margin: 0 auto;
-	background: image-url("home/key.png") 0 0 no-repeat;
-	background-size: 46px 19px;
+    padding: 0 15px;;
 }
 
 #home .form-wrap .byline{
-	font-size: 15px;
+	font-size: 20px;
 	text-transform: uppercase;
-	color: #074E6F;
+	color: #3d4c53;
 	text-align: center;
-	font-weight: bold;
 	letter-spacing: 2px;
-	margin: 15px 0;
+	margin: 15px 0 35px;
+    font-weight: 700;
 }
 
 #home .form-wrap .email{
 	float: left;
-	height: 37px;
-	font-size: 13px;
+	height: 48px;
+	font-size: 14px;
 	padding: 8px 0 8px 10px;
-	border: 1px solid #074E6F;
+	border: 1px solid #cacaca;
 	width: 256px;
 	outline: none;
-	letter-spacing: 1px;
     border-radius: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    margin-bottom: 20px;
 }
 
 #home .form-wrap .submit{
-	width: 143px;
-	background: #074E6F;
-	float: left;
-	height: 37px;
-	line-height: 37px;
+	width: auto;
+	background: #df2055;
+	height: 48px;
+	line-height: 48px;
 	color: #FFF;
-	font-size: 13px;
+	font-size: 14px;
 	text-transform: uppercase;
 	border: 0;
-	letter-spacing: 2px;
+    padding: 0 16px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    margin-bottom: 35px;
+}
+
+#home .form-wrap .ps{
+	font-size: 14px;
+	color: #3d4c53;
+	text-align: center;
+}
+
+#home .form-wrap .ps img.paw {
+    background: image-url("home/paw-icon.png") 0 0 no-repeat;
+    width: 18px;
+    height: auto;
+    display: inline;
+    vertical-align: middle;
 }
 
 #home .form-wrap.ended{
@@ -137,14 +175,12 @@ html.home{
 	color: #074e6f;
 	text-align: center;
 	font-size: 22px;
-	letter-spacing: 1px;
 	line-height: 36px;
 	margin-bottom: 14px;
 }
 
 #home .form-wrap.ended .compiling{
 	text-transform: uppercase;
-	letter-spacing: 1px;
 	font-size: 14px;
 	line-height: 30px;
 	color: #555556;
@@ -156,7 +192,6 @@ html.home{
 #home .form-wrap.ended .go-to{
 	font-style: italic;
 	font-size: 16px;
-	letter-spacing: 1px;
 	text-align: center;
 	margin-bottom: 25px;
 }
@@ -193,14 +228,12 @@ html.home{
 	color: #074e6f;
 	text-align: center;
 	font-size: 22px;
-	letter-spacing: 1px;
 	line-height: 36px;
 	margin-bottom: 14px;
 }
 
 #home .form-wrap.ended .compiling{
 	text-transform: uppercase;
-	letter-spacing: 1px;
 	font-size: 14px;
 	line-height: 30px;
 	color: #555556;
@@ -212,7 +245,6 @@ html.home{
 #home .form-wrap.ended .go-to{
 	font-style: italic;
 	font-size: 16px;
-	letter-spacing: 1px;
 	text-align: center;
 	margin-bottom: 25px;
 }
@@ -242,18 +274,11 @@ html.home{
     display: flex;
     flex-direction: row;
     width: 100%;
-    padding: 0 2%;
 }
 
 #home .form-wrap .email {
     float: none;
     width: 100%;
-}
-
-#home .form-wrap .submit{
-    float: none;
-    width: auto;
-    padding: 0 8px;
 }
 
 @media only screen and (max-width: 750px) {
@@ -284,8 +309,18 @@ html.home{
 	visibility: hidden;
 }
 
-.brandon{
-	font-family: "Brandon Grotesque", "brandon-grotesque", "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+.brandon-header {
+    font-family: 'Yeseva One', cursive;
+}
+
+.brandon-body {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+.brandon-button {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
 }
 
 #refer{
@@ -321,10 +356,6 @@ html.home{
 	font-weight: 500;
 	text-transform: uppercase;
 	line-height: 50px;
-}
-
-#refer .header .byline{
-	font-size: 14px;
 }
 
 #refer .header .logo{
@@ -830,25 +861,6 @@ html.home{
 only screen and (-o-min-device-pixel-ratio: 2/1),
 only screen and (-webkit-min-device-pixel-ratio: 2),
 only screen and (min-device-pixel-ratio: 2) {
-	#home .hero{
-		background: image-url("home/hero@2x.jpg") center center no-repeat;
-		background-size: 1600px 446px;
-	}
-
-	#home .form-wrap .key{
-		background: image-url("home/key@2x.png") 0 0 no-repeat;
-		background-size: 46px 19px;
-	}
-
-	#refer .header .logo{
-		background: image-url("refer/logo@2x.png") 0 0 no-repeat;
-		background-size: 106px 19px;
-	}
-
-	#refer .mammoth{
-		background: image-url("refer/mammoth@2x.png") 10% 10% no-repeat;
-		background-size: 610px 394px;
-	}
 
 	#refer .share-wrap .social-links .fb{
 		background: image-url("refer/fb@2x.png");

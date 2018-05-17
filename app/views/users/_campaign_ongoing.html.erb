@@ -1,17 +1,17 @@
-<div class="key"></div>
-<p class="byline brandon">Be the first to know</p>
+<p class="byline brandon-body">Join the family for 20% off!</p>
 <%= form_for @user, :url => { :action => "create" }, html: { id: "email-form" } do |f| %>
-  <%= f.text_field :email, :placeholder => "Enter Email", :class => "email brandon" %>
+  <%= f.text_field :email, :placeholder => "Enter your email", :class => "email brandon" %>
 
   <input
-    class="submit brandon g-recaptcha"
+    class="submit brandon-button g-recaptcha"
     name="commit"
     type="submit"
-    value="Step Inside"
+    value="Let's Go"
     data-sitekey="6LdwdFkUAAAAAN93lFRt4g2CsBvqEqPXJ4at6Q_y"
     data-callback="onSubmit"
   />
 <% end %>
+<p class="ps brandon-body">psst...you can also win free stuff for signing up ;) <span style="color: #aaaaaa;">&mdash;</span> <img class="paw" src="<%= asset_path('home/paw-icon.png')%>"></p>
 
 <script>
   function onSubmit(token) {
