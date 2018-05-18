@@ -95,6 +95,12 @@ bundle:
 logs:
 	docker-compose -f ${DEV_FILE} -p ${NAME} logs -f
 
+ssh_prod:
+	ssh -A ubuntu@code-quill-referral.shaneburkhart.com
+
+deploy_prod:
+	ssh -A ubuntu@code-quill-referral.shaneburkhart.com "cd ~/prelaunchr; make prod;"
+
 heroku_deploy:
 	docker-compose -f ${DEV_FILE} -p ${NAME} run --rm web true
 	docker cp $$(docker ps -a | grep web | head -n 1 | awk '{print $$1}'):/app/Gemfile.lock .

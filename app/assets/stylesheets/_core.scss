@@ -136,6 +136,8 @@ html.home{
 }
 
 #home .form-wrap .submit{
+    -webkit-appearance: none;
+    border-radius: 0;
 	width: auto;
 	background: #df2055;
 	height: 48px;
