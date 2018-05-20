@@ -340,7 +340,7 @@ html.home{
 
 #refer .header{
 	height: 50px;
-	background: #074E6F;
+	background: #DF2055;
 	width: 100%;
 	overflow:hidden;
 	z-index: 1;
@@ -353,28 +353,26 @@ html.home{
 }
 
 #refer .header p{
-	float: left;
 	color: #FFF;
 	font-weight: 500;
 	text-transform: uppercase;
 	line-height: 50px;
 }
 
-#refer .header .logo{
+#refer .header .content {
+    text-align: center;
+}
+
+#refer .header .logo {
 	font-weight: normal;
 	font-size: 0;
 	line-height: 0;
-	margin-right: 14px;
-	letter-spacing: 1px;
-	background: image-url("refer/logo.png") 0 0 no-repeat;
-	background-size: 106px 19px;
-	height: 19px;
-	width: 106px;
-	margin-top: 15px;
+	height: 28px;
+	margin-top: 12px;
 }
 
 #refer .hero{
-	background: #F1F0EE;
+	background-color: #F5F5F5;
 	height: 391px;
 	overflow: hidden;
 }
@@ -383,27 +381,14 @@ html.home{
     position: relative;
 }
 
-#refer .mammoth{
+#refer .doggo {
 	width: auto;
-	height: 394px;
-	background: image-url("refer/mammoth.png") 0 0 no-repeat;
-	background-size: 610px 394px;
+	height: 360px;
+	background: image-url("refer/hero-bg.png") 0 0 no-repeat;
+    background-size: 881px 360px;
 	overflow: hidden;
 	margin-top: 15px;
     flex: 1;
-}
-
-#refer .mammoth .need{
-	color: #FFF;
-	font-size: 38px;
-	text-transform: uppercase;
-	font-weight: bold;
-	margin: 102px 0 0 72px;
-	display: block;
-	line-height: 56px;
-	letter-spacing: 4px;
-	text-align: center;
-	width: 284px;
 }
 
 #refer .share-wrap{
@@ -419,7 +404,7 @@ html.home{
 
 #refer .share-wrap .why{
 	font-size: 16px;
-	color: #555556;
+	color: #3d4c53;
 	font-weight: bold;
 	margin-top: 42px;
 }
@@ -429,14 +414,14 @@ html.home{
 	line-height: 40px;
 	text-transform: uppercase;
 	font-weight: bold;
-	color: #074E6F;
+	color: #DF2055;
 	margin-top: 18px;
-	letter-spacing: .13em;
 }
 
 #refer .share-wrap .subtitle{
-	color: #565656;
-	font-size: 14px;
+	color: #3d4c53;
+	font-size: 12px;
+    line-height: 1.5;
 	text-transform: none;
 	margin-top: 15px;
 }
@@ -487,7 +472,7 @@ html.home{
 	width: 100%;
 	background: #FFF;
 	border-top: 1px solid #D2D1C8;
-	padding-bottom: 100px;
+	padding-bottom: 50px;
 }
 
 #refer .prizes .page-content{
@@ -497,7 +482,7 @@ html.home{
 #refer .prizes .callout{
 	text-align: center;
 	font-size: 16px;
-	color: #074E6F;
+	color: #DF2055;
 	font-weight: bold;
 	margin: 20px 0 0 0;
 	letter-spacing: 2px;
@@ -517,7 +502,7 @@ html.home{
 #refer .prizes .products li.title{
 	height: 100%;
 	text-transform: uppercase;
-	color: #074E6F;
+	color: #DF2055;
 	font-weight: 500;
 	font-size: 14px;
 	float: left;
@@ -528,21 +513,24 @@ html.home{
 
 #refer .prizes .products li.title .friends{
 	margin-top: 7px;
-	letter-spacing: 2px;
+	letter-spacing: 1px;
+	color: #3d4c53;
 }
 
 #refer .prizes .products li.title .rewards{
+	color: #3d4c53;
 	margin-top: 45px;
-	letter-spacing: 2px;
+	letter-spacing: 1px;
 }
 
 #refer .prizes .products li.product{
+	color: #3d4c53;
 	height: 100%;
-	color: #074E6F;
 	width: 125px;
 	float: left;
 	position: relative;
     flex: 1;
+    font-size: 14px;
 }
 
 #refer .prizes .products li.product.progress-placeholder { display: none; }
@@ -586,6 +574,11 @@ html.home{
 	text-align: center;
 	font-weight: 500;
 }
+
+#refer .prizes .products li.product p:focus {
+    outline: none;
+}
+
 
 #refer .prizes .products li.product:last-child{
 	margin-right: 0;
@@ -644,14 +637,14 @@ html.home{
 
 #refer .prizes .products li.product:hover .circle{
 	color: #FFF;
-	background: #074E6F;
-	border-color: #074E6F;
+	background: #DF2055;
+	border-color: #DF2055;
 }
 
 #refer .prizes .products li.product .tooltip{
 	height: 254px;
-	width: 190px;
-	border: 4px solid #074E6F;
+	width: 254px;
+	border: 4px solid #DF2055;
 	position: absolute;
 	top: -285px;
 	left: -32px;
@@ -662,9 +655,11 @@ html.home{
 #refer .prizes .products li.product .tooltip img{
 	margin: 0 auto;
 	display: block;
+	height: 246px;
+	width: 246px;
 }
 
-#refer .prizes .products li.product:hover .tooltip{
+#refer .prizes .products li.product:hover .tooltip {
 	display: block;
 }
 
@@ -710,6 +705,12 @@ html.home{
 	text-decoration: none;
 }
 
+@media only screen and (max-width: 900px) {
+    #refer .doggo {
+        background-position: -100px 0%;
+    }
+}
+
 @media only screen and (max-width: 750px) {
     #refer .hero {
         height: auto;
@@ -719,14 +720,15 @@ html.home{
         width: auto;
     }
 
-    #refer .mammoth{
+    #refer .doggo{
         width: auto;
-        height: 394px;
-        background: image-url("refer/mammoth.png") 10% 10% no-repeat;
-        background-size: auto 394px;
+        height: 300px;
+        background-position: 0% -60px;
+        background-size: auto 360px;
         overflow: hidden;
         margin-top: 15px;
         float: none;
+        border-bottom: 1px solid #d2d1c8;
     }
 
     #refer .mammoth .need{
@@ -793,7 +795,12 @@ html.home{
     #refer .prizes .products li.product:before { top: 0; bottom: auto; }
     #refer .prizes .products li.product:after { bottom: 0; top: auto; }
 
-    #refer .prizes .products li.product.progress-placeholder { display: flex; padding: 15px 0; }
+    #refer .prizes .products li.product.progress-placeholder {
+        color: #6c8793;
+        font-size: 12px;
+        display: flex;
+        padding: 15px 0 15px 95px;
+    }
     #refer .prizes .products li.product.last:after { display: none; }
 
     #refer .no-prize .products li.product + li.product:before,
@@ -850,11 +857,35 @@ html.home{
         flex: 1;
     }
 
+    #refer .prizes .products li.product .tooltip {
+        top: -245px;
+        left: 120px;
+    }
+
+    #refer .prizes .products li.product:hover .tooltip {
+        display: none;
+    }
+
+    #refer .prizes .products li.product.focus .tooltip {
+        display: block;
+    }
+
+    #refer .prizes .products li.product:hover .circle{
+        color: #868282;
+        border: 1px solid #DAD9D2;
+        background: #F1F0EE;
+    }
+
     #refer .prizes .progress{
         display: none;
     }
 }
 
+@media only screen and (max-width: 600px) {
+    #refer .doggo {
+        background-position: 20% -60px;
+    }
+}
 
 /*
 	RETINA
@@ -876,11 +907,6 @@ only screen and (min-device-pixel-ratio: 2) {
 
 	#refer .prizes .progress{
 		background: image-url("refer/progress-bg@2x.png") 0 0 repeat-x;
-		background-size: 1px 4px;
-	}
-
-	#refer .prizes .progress .mover .bar{
-		background: image-url("refer/progress-done@2x.png") 0 0 repeat-x;
 		background-size: 1px 4px;
 	}
 

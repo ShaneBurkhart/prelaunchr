@@ -16,27 +16,27 @@ class User < ActiveRecord::Base
   REFERRAL_STEPS = [
     {
       'count' => 5,
-      'html' => 'Shave<br>Cream',
+      'html' => 'Froot Pack x1',
       'class' => 'two',
-      'image' =>  'refer/cream-tooltip@2x.png'
+      'image' =>  'refer/tier1.png'
     },
     {
       'count' => 10,
-      'html' => 'Truman Handle<br>w/ Blade',
+      'html' => 'Froot Pack x3',
       'class' => 'three',
-      'image' => 'refer/truman@2x.png'
+      'image' =>  'refer/tier2.png'
     },
     {
       'count' => 25,
-      'html' => 'Winston<br>Shave Set',
+      'html' => 'Froot Pack<br>6 Month Supply',
       'class' => 'four',
-      'image' => 'refer/winston@2x.png'
+      'image' =>  'refer/tier3.png'
     },
     {
       'count' => 50,
-      'html' => 'One Year<br>Free Blades',
+      'html' => 'Froot Pack<br>1 Year Supply',
       'class' => 'five',
-      'image' => 'refer/blade-explain@2x.png'
+      'image' =>  'refer/tier4.png'
     }
   ]
 

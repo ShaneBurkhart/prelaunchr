@@ -47,6 +47,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def refer_redirect
+    # Cookie is automatically saved with before_filter
+    redirect_to "http://woofandwhistleshop.com"
+  end
+
   def policy
   end
 
