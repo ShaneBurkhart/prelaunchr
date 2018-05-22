@@ -13,11 +13,11 @@
       <p class="title brandon-header">INVITE FRIENDS &<br>Earn Product</p>
       <p class="subtitle brandon-body">Share your unique link via email, Facebook or Twitter and earn Woof &amp; Whistle goods for each friend who signs up.</p>
       <div class="copy-link brandon"><%= r_url %>?ref=<%= @user.referral_code %></div>
-      <% twitter_message = "#Shaving is evolving. Excited for @harrys to launch." %>
+      <% twitter_message = "#dog #treats that are actually healthy? Can’t wait for Woof & Whistle to be back in stock!" %>
       <div class="social-links">
-        <a href="http://www.facebook.com/sharer/sharer.php?u=<%= CGI::escape(root_url) %>?ref=<%= CGI::escape(@user.referral_code) %>&title=Harrys" class="fb" target="_blank"></a>
+      <a href="http://www.facebook.com/sharer/sharer.php?u=<%= CGI::escape(r_url) %>?ref=<%= CGI::escape(@user.referral_code) %>&title=<%= CGI::escape("Woof & Whistle") %>" class="fb" target="_blank"></a>
         <div class="sep"></div>
-        <a href="http://twitter.com/share?url=<%= CGI::escape(root_url) %>?ref=<%= CGI::escape(@user.referral_code) %>&text=<%= CGI::escape(twitter_message) %>" class="twit" target="_blank"></a>
+        <a href="http://twitter.com/share?url=<%= CGI::escape(r_url) %>?ref=<%= CGI::escape(@user.referral_code) %>&text=<%= CGI::escape(twitter_message) %>" class="twit" target="_blank"></a>
       </div>
     </div>
   </div>
