@@ -37,6 +37,7 @@ class UsersController < ApplicationController
           email_address: @user.email,
           status: "subscribed",
           merge_fields: {
+            ME_URL: "#{refer_a_friend_url}?ref=#{@user.referral_code}",
             REFER_URL: "#{r_url}?ref=#{@user.referral_code}",
             REFER_NUM: 0,
           }
@@ -62,6 +63,12 @@ class UsersController < ApplicationController
   def refer
     @bodyId = 'refer'
     @is_mobile = mobile_device?
+    ref_code = params[:ref]
+
+    if ref_code
+      referrer = User.find_by_referral_code(ref_code)
+      cookies[:h_email] = { value: referrer.email } if referrer
+    end
 
     @user = User.find_by_email(cookies[:h_email])
 
