@@ -11,6 +11,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'sass-rails',   '~> 5.0.1'
 gem 'uglifier'
 gem 'jquery-rails'
+gem 'gibbon'
 
 group :development, :test do
   gem 'pry'

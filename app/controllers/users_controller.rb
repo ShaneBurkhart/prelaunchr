@@ -1,5 +1,7 @@
 require "uri"
 require "net/http"
+require "digest/md5"
+require "gibbon"
 
 class UsersController < ApplicationController
   before_filter :skip_first_page, only: :new
@@ -21,9 +23,34 @@ class UsersController < ApplicationController
     ref_code = cookies[:h_ref]
     email = params[:user][:email]
     @user = User.new(email: email)
+
+    gibbon = Gibbon::Request.new(api_key: ENV["MAILCHIMP_API_KEY"])
+    gibbon_updater = Gibbon::Request.new(api_key: ENV["MAILCHIMP_API_KEY"])
+
     @user.referrer = User.find_by_referral_code(ref_code) if ref_code
 
     if @user.save
+      gibbon
+        .lists(ENV["MAILCHIMP_LIST_ID"])
+        .members(Digest::MD5.hexdigest(@user.email.downcase))
+        .upsert(body: {
+          email_address: @user.email,
+          status: "subscribed",
+          merge_fields: {
+            REFER_URL: "#{r_url}?ref=#{@user.referral_code}",
+            REFER_NUM: 0,
+          }
+        })
+
+      if @user.referrer
+        gibbon_updater
+          .lists(ENV["MAILCHIMP_LIST_ID"])
+          .members(Digest::MD5.hexdigest(@user.referrer.email.downcase))
+          .upsert(body: {
+            merge_fields: { REFER_NUM: @user.referrer.referrals.count }
+          })
+      end
+
       cookies[:h_email] = { value: @user.email }
       redirect_to '/refer-a-friend'
     else
