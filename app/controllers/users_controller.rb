@@ -47,7 +47,7 @@ class UsersController < ApplicationController
         gibbon_updater
           .lists(ENV["MAILCHIMP_LIST_ID"])
           .members(Digest::MD5.hexdigest(@user.referrer.email.downcase))
-          .upsert(body: {
+          .update(body: {
             merge_fields: { REFER_NUM: @user.referrer.referrals.count }
           })
       end
