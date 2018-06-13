@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
 
   REFERRAL_STEPS = [
     {
-      'count' => 5,
+      'count' => 3,
       'html' => 'Froot Pack x1',
       'class' => 'two',
       'image' =>  'refer/tier1.png'
@@ -27,13 +27,13 @@ class User < ActiveRecord::Base
       'image' =>  'refer/tier2.png'
     },
     {
-      'count' => 25,
+      'count' => 20,
       'html' => 'Froot Pack<br>6 Month Supply',
       'class' => 'four',
       'image' =>  'refer/tier3.png'
     },
     {
-      'count' => 50,
+      'count' => 35,
       'html' => 'Froot Pack<br>1 Year Supply',
       'class' => 'five',
       'image' =>  'refer/tier4.png'
