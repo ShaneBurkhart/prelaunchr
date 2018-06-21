@@ -63,14 +63,17 @@ class UsersController < ApplicationController
   def refer
     @bodyId = 'refer'
     @is_mobile = mobile_device?
+    @lead_tracked = cookies[:lead_tracked] || false
     ref_code = params[:me_ref]
 
     if ref_code
       referrer = User.find_by_referral_code(ref_code)
       cookies[:h_email] = { value: referrer.email } if referrer
+      @lead_tracked = true
     end
 
     @user = User.find_by_email(cookies[:h_email])
+    cookies[:lead_tracked] = true
 
     respond_to do |format|
       if @user.nil?

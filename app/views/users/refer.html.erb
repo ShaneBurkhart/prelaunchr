@@ -1,6 +1,8 @@
-<script>
-  fbq('track', 'Lead');
-</script>
+<% if @lead_tracked == false %>
+  <script>
+    fbq('track', 'Lead');
+  </script>
+<% end %>
 
 <div class="header">
   <div class="content">
