@@ -73,12 +73,13 @@ class UsersController < ApplicationController
     end
 
     @user = User.find_by_email(cookies[:h_email])
-    cookies[:lead_tracked] = { value: true, expires: 1.year.from_now }
 
     respond_to do |format|
       if @user.nil?
         format.html { redirect_to root_path, alert: 'Something went wrong!' }
       else
+        # Only set cookie if user is found.
+        cookies[:lead_tracked] = { value: true, expires: 1.year.from_now }
         format.html # refer.html.erb
       end
     end
