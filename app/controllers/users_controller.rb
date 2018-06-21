@@ -52,7 +52,7 @@ class UsersController < ApplicationController
           })
       end
 
-      cookies[:h_email] = { value: @user.email }
+      cookies[:h_email] = { value: @user.email, expires: 1.year.from_now }
       redirect_to '/refer-a-friend'
     else
       logger.info("Error saving user with email, #{email}")
@@ -68,12 +68,12 @@ class UsersController < ApplicationController
 
     if ref_code
       referrer = User.find_by_referral_code(ref_code)
-      cookies[:h_email] = { value: referrer.email } if referrer
+      cookies[:h_email] = { value: referrer.email, expires: 1.year.from_now } if referrer
       @lead_tracked = true
     end
 
     @user = User.find_by_email(cookies[:h_email])
-    cookies[:lead_tracked] = true
+    cookies[:lead_tracked] = { value: true, expires: 1.year.from_now }
 
     respond_to do |format|
       if @user.nil?
